@@ -14,12 +14,6 @@ ENV PLUGINS_PATH $JMETER_PATH/plugins
 #==============
 RUN apt-get update && apt-get install -y \
     python-pip \
-    libssl-dev \
-    libffi-dev \
-    python-dev \
-    apt-transport-https \
-    lsb-release \
-    gpg \
     wget
 
 RUN pip install yq

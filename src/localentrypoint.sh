@@ -7,7 +7,6 @@ yq -y .config /usr/local/jmeter-config/loadspec_1.yaml > /usr/local/jmeter-confi
 mkdir -p loadtest/workdir
 cd loadtest/workdir
 
-esindex=$(printenv | grep -oP -i 'esindex=\K(.*)')
 
 echo
 echo "Host = $apihost"
@@ -15,13 +14,6 @@ echo "Threads = $threads"
 echo "Duration = $durationsec"
 echo "Rampup = $rampupsec"
 echo "Target RPS = $targetrps"
-
-
-if ([ -z "${esindex}" ]); then
-  JMX_ESINDEX=$(hostname)
-else
-  JMX_ESINDEX=${esindex}
-fi
 
 # Runs blazemeter taurus which executes whats in the config.yaml and points jmeter that was copied across unless the switch is given below
 # in this case the switch takes precedence
