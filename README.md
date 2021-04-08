@@ -5,12 +5,12 @@ scripts and datafiles can be run against
 
 ## Getting started
 
-### Build:
-Run docker build command to build the load test image
+### Run:
+docker run --entrypoint /app/localentrypoint.sh -v $pwd/load-tests/:/app/loadtest -v $pwd/../loadspec.yaml:/usr/local/loadspec.yaml --env-file .env scottyg/load-testing-image .
+
+### Build [from loadtestapp(https://github.com/sgriffiths/loadtestapp)]:
+Run docker build command to build the load test image for the load test app folder
 Eg:
 ```
 docker build -t loadtestimage:v1 .
 ```
-
-### Run:
-docker run --entrypoint /app/localentrypoint.sh -v $pwd/load-tests/:/app/loadtest -v $pwd/../loadspec.yaml:/usr/local/loadspec.yaml --env-file .env loadtestimage:v1 .
